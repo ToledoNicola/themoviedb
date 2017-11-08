@@ -41,10 +41,20 @@ module.exports = (function () {
                 res.send(err);
             });
     }
+    var deleteOne = function (req, res) {
+        film.findByIdAndRemove(req.params.id)
+            .exec()
+            .then(function () {
+                res.status(200);
+            }).catch(function (err) {
+                res.status(500).send(err);
+            })
+    }
     return {
         getAll: getAll,
         getOne: getOne,
         getByQuery: getByQuery,
-        setOne: setOne
+        setOne: setOne,
+        deleteOne: deleteOne
     }
 })();

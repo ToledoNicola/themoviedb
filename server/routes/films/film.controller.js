@@ -3,6 +3,7 @@ module.exports = (function () {
 
     var getAll = function (req, res) {
         film.find()
+            .populate('genere','-_id')
             .exec()
             .then(function (films) {
                 res.status(200).json(films);
@@ -54,13 +55,13 @@ module.exports = (function () {
         film.findByIdAndUpdate(req.params.id,req.body)
             .exec()
             .then(function () {
+                
                 res.status(200).send('film aggiornato');
             }).catch(function (err) {
                 res.status(500).send(err);
             })
     }
     var setVote = function (req, res) {
-        console.log(req.body);
         film.findById(req.params.id)
             .exec()
             .then(function (filmm) {

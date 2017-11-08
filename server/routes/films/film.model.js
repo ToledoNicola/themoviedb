@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+// var genere = require('./genere.model.js');
+
+
 var schema = mongoose.Schema;
 
 var film = new schema({
@@ -40,6 +43,15 @@ var film = new schema({
         type:Date,
 
     }
-});
+}, { toJSON: { virtuals: true } });
+film.virtual('genere', {
+    ref: 'Genere', // The model to use
+    localField: 'genre_ids', // Find people where `localField`
+    foreignField: 'id', // is equal to `foreignField`
+    // If `justOne` is true, 'members' will be a single doc as opposed to
+    // an array. `justOne` is false by default.
+    justOne: false
+})
+
 var Film = mongoose.model('Film', film);
 module.exports = Film;

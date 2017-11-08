@@ -3,7 +3,7 @@ var filmController = require('./film.controller.js');
 
 var films = express.Router();
 // prendo titolo dalla query
-films.get('', filmController.getByQuery);
+//films.get('', filmController.getByQuery);
 // tutti i film
 films.get('/', filmController.getAll);
 // prendo da id film

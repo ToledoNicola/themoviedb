@@ -12,6 +12,8 @@ films.get('/:id', filmController.getOne);
 films.post('/nuovoFilm', filmController.setOne);
 // aggiono film 
 films.put('/aggiornaFilm/:id', filmController.updateOne);
+// nuovo voto film 
+films.put('/nuovoVoto/:id', filmController.setVote);
 // elimino un film con l'id
 films.delete('/:id', filmController.deleteOne);
 

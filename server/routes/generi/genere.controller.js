@@ -10,7 +10,21 @@ module.exports = (function () {
                 res.status(500).send(err);
             })
     }
+    var removeOne = function (req, res) {
+        genere.findById(req.params.id)
+            .exec()
+            .then(function (generi) {
+                return generi.remove();
+            })
+            .then(function (generi) {
+                res.status(200).json(generi);
+            })
+            .catch(function (err) {
+                res.status(500).send(err);
+            })
+    }
     return {
-        getAll: getAll
+        getAll: getAll,
+        removeOne: removeOne
     }
 })();

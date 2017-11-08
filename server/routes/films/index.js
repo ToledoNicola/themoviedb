@@ -10,6 +10,8 @@ films.get('/', filmController.getAll);
 films.get('/:id', filmController.getOne);
 // inserisco nuovo film
 films.post('/nuovoFilm', filmController.setOne);
+// aggiono film 
+films.put('/aggiornaFilm/:id', filmController.updateOne);
 // elimino un film con l'id
 films.delete('/:id', filmController.deleteOne);
 

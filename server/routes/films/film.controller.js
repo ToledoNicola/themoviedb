@@ -45,7 +45,16 @@ module.exports = (function () {
         film.findByIdAndRemove(req.params.id)
             .exec()
             .then(function () {
-                res.status(200);
+                res.status(200).send('film eliminato');
+            }).catch(function (err) {
+                res.status(500).send(err);
+            })
+    }
+    var updateOne = function (req, res) {
+        film.findByIdAndUpdate(req.params.id,req.body)
+            .exec()
+            .then(function () {
+                res.status(200).send('film aggiornato');
             }).catch(function (err) {
                 res.status(500).send(err);
             })
@@ -55,6 +64,7 @@ module.exports = (function () {
         getOne: getOne,
         getByQuery: getByQuery,
         setOne: setOne,
-        deleteOne: deleteOne
+        deleteOne: deleteOne,
+        updateOne: updateOne
     }
 })();

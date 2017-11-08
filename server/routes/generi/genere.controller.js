@@ -2,7 +2,7 @@ module.exports = (function () {
     var genere = require('./genere.model.js');
 
     var getAll = function (req, res) {
-        film.find()
+        genere.find()
             .exec()
             .then(function (generi) {
                 res.status(200).json(generi);

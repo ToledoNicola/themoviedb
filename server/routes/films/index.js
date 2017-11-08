@@ -5,6 +5,7 @@ var films = express.Router();
 films.get('', filmController.getByQuery);
 films.get('/', filmController.getAll);
 films.get('/:id', filmController.getOne);
+films.post('/nuovoFilm', filmController.setOne);
 
 // films.get('/', (req, res) => {
 //     res.send('lista dei films');

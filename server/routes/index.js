@@ -2,6 +2,7 @@ module.exports = function (app, express) {
 
     var path = require('path');
 
+    app.use(express.json());
     app.use('/bootstrap', express.static(path.join(__dirname, '..', '..', 'node_modules', 'bootstrap')));
     app.use('/images', express.static(path.join(__dirname, '..', '..', 'public', 'images')));
     app.use('/css', express.static(path.join(__dirname, '..', '..', 'public', 'css')));

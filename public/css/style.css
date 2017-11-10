@@ -9,3 +9,6 @@ h1{
 .container-fluid{
     background-color: black;
 }
+.navbar {
+    border-radius: 0;
+}

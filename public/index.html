@@ -14,12 +14,30 @@
 <body>
    <div ng-app="app">
     <div ng-include="'app/ui/nav.template.html'"></div>
+    <div ng-controller="FilmCtrl">
+        <div ng-repeat="film in listaFilm">
 
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="">
+                        <img class="media-object" src="https://image.tmdb.org/t/p/w640{{film.poster_path}}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{film.title}}</h4>
+                    ...
+                </div>
+            </div>
+
+        </div>
+    </div>
    </div>
 </body>
 <script scr="bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="angular/angular.min.js"></script>
 <script src="app/app.js"></script>
+<script src="app/film/film.service.js"></script>
+<script src="app/film/film.controller.js"></script>
 
 </html>

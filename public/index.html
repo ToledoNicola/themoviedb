@@ -12,26 +12,45 @@
 </head>
 
 <body>
-   <div ng-app="app">
-    <div ng-include="'app/ui/nav.template.html'"></div>
-    <div ng-controller="FilmCtrl">
-        <div ng-repeat="film in listaFilm">
+    <div ng-app="app">
+        <div ng-include="'app/ui/nav.template.html'"></div>
+        <div ng-controller="FilmCtrl">
+            <div ng-show="listaFilm" ng-repeat="film in listaFilm">
 
-            <div class="media">
-                <div class="media-left media-middle">
-                    <a href="">
-                        <img class="media-object" src="https://image.tmdb.org/t/p/w640{{film.poster_path}}" alt="...">
-                    </a>
+                <div class="col-md-6">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://image.tmdb.org/t/p/w640{{film.poster_path}}" alt="...">
+                            <div class="caption">
+                                <h3>{{film.title}}</h3>
+                                <p>
+                                    <a ng-click="vediDettaglio(film.id)" class="btn btn-primary" role="button">Dettaglio</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="media-body">
-                    <h4 class="media-heading">{{film.title}}</h4>
-                    ...
-                </div>
+
             </div>
 
+            <div ng-show="Film">
+                <div class="col-md-6">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="">
+                                <img class="media-object" src="https://image.tmdb.org/t/p/w640{{Film.poster_path}}" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{Film.title}}</h4>
+                            {{Film.overview}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-   </div>
 </body>
 <script scr="bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>

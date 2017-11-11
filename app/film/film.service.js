@@ -7,9 +7,16 @@ angular.module("app")
                 url: '/api/films'
             });
         }
+        var getFilm = function (id) {
+             return $http({
+                method: 'GET',
+                url: '/api/films/'+id
+            });
+        }
 
 
 return {
-    getFilms: getFilms
+    getFilms: getFilms,
+    getFilm: getFilm
 }
     });

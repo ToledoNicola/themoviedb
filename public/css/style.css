@@ -12,3 +12,6 @@ h1{
 .navbar {
     border-radius: 0;
 }
+a img{
+    height: 200px;
+}

@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/themoviedb',
+mongoose.connect('mongodb://nicola:toledo96@ds033285.mlab.com:33285/themoviedb',
     { useMongoClient: true },
     function (err) {
         if (err) {
